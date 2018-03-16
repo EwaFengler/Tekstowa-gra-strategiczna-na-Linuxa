@@ -1,0 +1,3 @@
+#!/bin/bash
+gcc klient.cpp -lncurses -o klient -Wall
+gcc serwer.cpp -o serwer -Wall

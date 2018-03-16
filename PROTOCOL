@@ -1,0 +1,44 @@
+Klienci wysyłają deskryptory indywidualnych kolejek komunikatów poprzez kolejkę
+utworzoną przez serwer.
+
+Zmienne współdzielone w serwerze to:
+ileGraczy - zlicza graczy. Dla wartości 3 gra się rozpoczyna
+trwaGra - mówi o tym, czy jeszcze trwa rozgrywka
+statusy - tablica 3 struktur zawierających dane poszczególnych graczy.
+
+
+Struktury przesyłane kolejkami komunikatów:
+
+desk_msg - pierwsza struktura wysyłana przez klienta aby podać deskryptor swojej kolejki
+zawiera: typ, deskryptor kolejki
+
+sygnal - stuktura do przesylania wiadomosci okreslonych jedynie typem, np. "UDANY_ATAK"
+zawiera: typ
+
+atak_msg - dane dotyczace ataku - na kogo i jakimi jednostkami
+zawiera: typ, liczbe poszczegolnych jednostek i numer przeciwnika
+
+produkcja_msg - polecenie produkcji jednostek
+zawiera: typ, numer jednostki, liczbę jednostek do produkcji
+
+stan_gry - struktura zawierajaca dane wszystkich graczy.
+Dla kazdego klienta jego dane są umieszczone jako pierwsze.
+zawiera: typ, liczba surowcow, poszczegolnych jednostek i wygranych dla kazdego gracza
+
+Typy wiadomości:
+WEJSCIE - gracz wszedł do gry
+
+ROZLACZENIE - nastąpiło rozłączenie z serwerem lub innym graczem
+WYGRANA - gracz wygrał
+PRZEGRANA - gracz przegrał
+SUKCES_WROGA - gracz przeprowadził udany atak
+PORAZKA_WROGA - gracz zaatakował, ale bez sukcesu
+UDANY_ATAK - atak gracza się powiódł
+NIEUDANY_ATAK -  atak gracza się nie powiódł
+NOWE_DANE - sygnał o tym, że nowe dane są dostępne
+ZLA_LICZBA - została podana zła liczba (np. co do liczby jednostek)
+STAN_GRY - cały stan gry
+
+PRODUKUJ - gracz wydaje polecenie produkcji
+ATAKUJ - gracz wydaje polecenie ataku
+WYJSCIE - gracz wyszedł z gry
